@@ -17,28 +17,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="users")
+@Table(name = "categories")
 @NoArgsConstructor
 @Getter
 @Setter
-public class User {
-
+public class Category {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int categoryId;
 	
-	@Column(name = "user_name", nullable = false, length = 100)
-	private String name;
+	@Column(name = "title")
+	private String categoryTitle;
 	
-	@Column(name = "email", nullable = false, length = 100)
-	private String email;
+	@Column(name = "description")
+	private String categoryDescription;
 	
-	@Column(name = "password", nullable = false, length = 100)
-	private String password;
-	
-	@Column(name = "about", nullable = true, length = 200)
-	private String about;
-	
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
 	private List<Post> posts = new ArrayList<>();
 }
