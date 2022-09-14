@@ -1,11 +1,13 @@
 package com.project.blog.payloads;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import com.project.blog.entities.Role;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,4 +34,5 @@ public class UserDto {
 	@NotEmpty
 	private String about;
 	
+	private List<RoleDto> roles = new ArrayList<>();
 }
